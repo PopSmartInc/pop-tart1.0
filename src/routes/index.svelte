@@ -3,8 +3,8 @@
 	import * as SC from 'svelte-cubed';
 
 	let width = 1;
-	let height = 1;
-	let depth = 1;
+	let height = 0.15;
+	let depth = 1.5;
 	let spin = 0;
 
 	SC.onFrame(() => {
@@ -25,6 +25,7 @@
 		rotation={[0, spin, 0]}
 		castShadow
 	/>
+
 	<SC.PerspectiveCamera position={[1, 1, 3]} />
 	<SC.OrbitControls enableZoom={false} maxPolarAngle={Math.PI * 0.51} />
 	<SC.AmbientLight intensity={0.6} />
@@ -44,14 +45,5 @@
 	</SC.Group>
 </SC.Canvas>
 
-<div class="controls">
-	<label><input type="range" bind:value={width} min={0.1} max={3} step={0.1} /> width</label>
-	<label><input type="range" bind:value={height} min={0.1} max={3} step={0.1} /> height</label>
-	<label><input type="range" bind:value={depth} min={0.1} max={3} step={0.1} /> depth</label>
-</div>
-
 <style>
-	.controls {
-		position: absolute;
-	}
 </style>
